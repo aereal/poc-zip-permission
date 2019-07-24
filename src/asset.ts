@@ -13,7 +13,7 @@ let useCDKZipDirectory = !!process.env.USE_CDK_ZIP_DIRECTORY
 export async function prepareZipAsset(
     assemblyDir: string,
     asset: FileAssetMetadataEntry
-): Promise<void> {
+): Promise<string> {
   console.log({ useCDKZipDirectory })
   const { zipDirectory } = useCDKZipDirectory ?
     await import('aws-cdk/lib/archive') :
@@ -32,7 +32,7 @@ export async function prepareZipAsset(
     const archiveFile = join(staging, 'archive.zip');
     await zipDirectory(dirPath, archiveFile);
     debug('zip archive:', archiveFile);
-    return
+    return archiveFile
   } finally {
     // await fs.remove(staging);
   }
