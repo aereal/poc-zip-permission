@@ -4,5 +4,9 @@
   "main": "index.js",
   "author": "aereal <aereal@aereal.org>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  }
 }
